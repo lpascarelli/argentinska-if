@@ -1,10 +1,7 @@
-import { Inter } from 'next/font/google';
-
 import MainHeader from './components/main-header/main-header';
+import Body from './components/layout/body';
 
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Argentinska IF',
@@ -18,10 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <Body>
         <MainHeader />
         <main className='m-10'>{children}</main>
-      </body>
+      </Body>
     </html>
   );
 }
