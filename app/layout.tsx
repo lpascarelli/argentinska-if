@@ -6,15 +6,15 @@ import './globals.css';
 export const metadata = {
   title: 'Argentinska IF',
   description: 'Argentinska IF official page',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <Body>
         <MainHeader />
         <main className='m-10'>{children}</main>
