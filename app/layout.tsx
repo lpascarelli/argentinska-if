@@ -1,5 +1,6 @@
 import MainHeader from './components/main-header/main-header';
 import Body from './components/layout/body';
+import Footer from './components/footer/footer';
 
 import './globals.css';
 
@@ -18,6 +19,7 @@ export default function RootLayout({
       <Body>
         <MainHeader />
         <main className='m-10'>{children}</main>
+        <Footer />
       </Body>
     </html>
   );

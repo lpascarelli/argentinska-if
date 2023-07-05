@@ -31,7 +31,7 @@ export default function NavBar() {
           showNav ? 'right-[0px]' : 'right-[-100vw]'
         } `}
       >
-        <NavLinks />
+        <NavLinks isMobile />
       </nav>
     </>
   );
