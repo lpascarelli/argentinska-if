@@ -5,19 +5,16 @@ interface NavLinksProps {
 }
 
 export default function NavLinks({ isMobile }: NavLinksProps) {
-  return isMobile ? (
-    <div className='flex flex-col mt-40 gap-4 text-2xl'>
+  const classes = isMobile
+    ? 'flex flex-col mt-40 gap-5 text-2xl'
+    : 'flex gap-5';
+
+  return (
+    <div className={`${classes}`}>
       <Link href='/'>News</Link>
       <Link href='/'>The club</Link>
       <Link href='/'>Teams</Link>
       <Link href='/'>Shop</Link>
     </div>
-  ) : (
-    <>
-      <Link href='/'>News</Link>
-      <Link href='/'>The club</Link>
-      <Link href='/'>Teams</Link>
-      <Link href='/'>Shop</Link>
-    </>
   );
 }

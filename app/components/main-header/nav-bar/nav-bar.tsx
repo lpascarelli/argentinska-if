@@ -12,7 +12,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className='hidden md:flex gap-5 text-white'>
+      <nav className='hidden md:flex text-white'>
         <NavLinks />
       </nav>
       {showNav ? (
@@ -27,7 +27,7 @@ export default function NavBar() {
         />
       )}
       <nav
-        className={`argentinska-bg h-[100vh] fixed top-[0px] flex flex-col items-center w-full gap-5 md:hidden bg-white z-40 duration-1000 text-white ${
+        className={`argentinska-bg h-[100vh] fixed top-[0px] flex flex-col items-center w-full md:hidden duration-1000 text-white ${
           showNav ? 'right-[0px]' : 'right-[-100vw]'
         } `}
       >
