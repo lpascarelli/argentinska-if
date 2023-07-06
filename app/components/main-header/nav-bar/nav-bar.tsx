@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { HiX } from 'react-icons/hi';
 
 import NavLinks from './nav-links';
 
@@ -16,13 +17,13 @@ export default function NavBar() {
         <NavLinks />
       </nav>
       {showNav ? (
-        <XMarkIcon
-          className='md:hidden text-white z-50 w-10'
+        <HiX
+          className='md:hidden text-white z-50 w-10 h-8'
           onClick={handleShowNav}
         />
       ) : (
-        <Bars3Icon
-          className='md:hidden text-white w-10'
+        <GiHamburgerMenu
+          className='md:hidden text-white w-10 h-8'
           onClick={handleShowNav}
         />
       )}

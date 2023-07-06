@@ -8,8 +8,8 @@ export default function MainHeader() {
       <div className='mt-10'>
         <Image
           src='/images/argentinska-logo.png'
-          width={200}
-          height={200}
+          width={160}
+          height={160}
           alt='logo'
         />
       </div>
