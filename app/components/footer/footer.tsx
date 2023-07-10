@@ -1,5 +1,7 @@
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
+import { ARGENTINSKA_FB, ARGENTINSKA_IG } from '@/app/constants/urls';
+
 export default function Footer() {
   return (
     <footer className='argentinska-bg text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left'>
@@ -10,30 +12,17 @@ export default function Footer() {
           </span>
         </div>
         <div className='flex justify-center'>
-          <a
-            href='https://www.facebook.com/argentinskaif'
-            className='mr-6 text-neutral-600 dark:text-neutral-200'
-            target='__blank'
-          >
+          <a href={`${ARGENTINSKA_FB}`} className='mr-6' target='__blank'>
             <FaFacebook size={28} className='text-white' />
           </a>
-          <a
-            href='https://www.instagram.com/argentinskaif/'
-            className='mr-6 text-neutral-600 dark:text-neutral-200'
-            target='__blank'
-          >
+          <a href={`${ARGENTINSKA_IG}`} className='mr-6' target='__blank'>
             <FaInstagram size={28} className='text-white' />
           </a>
         </div>
       </div>
       <div className='argentinska-bg p-6 text-center text-white'>
         <span>© 2023 Copyright: </span>
-        <a
-          className='font-semibold text-white'
-          href='https://tailwind-elements.com/'
-        >
-          Argentinska IF
-        </a>
+        <span className='font-semibold text-white'>Argentinska IF</span>
       </div>
     </footer>
   );
