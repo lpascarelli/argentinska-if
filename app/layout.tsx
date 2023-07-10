@@ -1,6 +1,6 @@
-import MainHeader from './components/main-header/main-header';
+import MainHeader from './components/layout/main-header/main-header';
 import Body from './components/layout/body';
-import Footer from './components/footer/footer';
+import Footer from './components/layout/footer/footer';
 
 import './globals.css';
 
