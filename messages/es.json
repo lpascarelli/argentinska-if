@@ -1,4 +1,9 @@
 {
+  "LocaleSwitcher": {
+    "en": "Ingles",
+    "es": "Español",
+    "sv": "Sueco"
+  },
   "NavLinks": {
     "news": "Noticias",
     "the-club": "El club",

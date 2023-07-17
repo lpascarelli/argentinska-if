@@ -1,8 +1,9 @@
 import createMiddleware from 'next-intl/middleware';
+import { LANGUAGES } from './app/constants/languages';
 
 export default createMiddleware({
   // A list of all locales that are supported
-  locales: ['en', 'es', 'sv'],
+  locales: LANGUAGES,
 
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: 'en',
