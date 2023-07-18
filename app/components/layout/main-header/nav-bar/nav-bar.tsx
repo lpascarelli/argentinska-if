@@ -32,7 +32,7 @@ export default function NavBar() {
           showNav ? 'right-[0px]' : 'right-[-100vw]'
         } `}
       >
-        <NavLinks isMobile />
+        <NavLinks isMobile onHandleShowBar={handleShowNav} />
       </nav>
     </>
   );

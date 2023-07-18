@@ -5,9 +5,10 @@ import { useTranslations } from 'next-intl';
 import LocaleSwitcher from '@/app/components/ui/locale-switcher';
 interface NavLinksProps {
   isMobile?: boolean;
+  onHandleShowBar?: () => void;
 }
 
-export default function NavLinks({ isMobile }: NavLinksProps) {
+export default function NavLinks({ isMobile, onHandleShowBar }: NavLinksProps) {
   const t = useTranslations('NavLinks');
 
   const classes = isMobile
@@ -20,7 +21,7 @@ export default function NavLinks({ isMobile }: NavLinksProps) {
       <Link href='/'>{t('the-club')}</Link>
       <Link href='/'>{t('teams')}</Link>
       <Link href='/'>{t('shop')}</Link>
-      <LocaleSwitcher />
+      <LocaleSwitcher onHandleShowBar={onHandleShowBar} />
     </div>
   );
 }
