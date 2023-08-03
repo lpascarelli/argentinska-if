@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+
 import LocaleSwitcher from '@/components/ui/locale-switcher';
 interface NavLinksProps {
   isMobile?: boolean;
@@ -9,6 +10,7 @@ interface NavLinksProps {
 }
 
 export default function NavLinks({ isMobile, onHandleShowBar }: NavLinksProps) {
+  const locale = useLocale();
   const t = useTranslations('NavLinks');
 
   const classes = isMobile
@@ -23,16 +25,16 @@ export default function NavLinks({ isMobile, onHandleShowBar }: NavLinksProps) {
 
   return (
     <div className={`${classes}`}>
-      <Link href='/news' onClick={closeSideBarHandler}>
+      <Link href={`/${locale}/news`} onClick={closeSideBarHandler}>
         {t('news')}
       </Link>
-      <Link href='/the-club' onClick={closeSideBarHandler}>
+      <Link href={`/${locale}/the-club`} onClick={closeSideBarHandler}>
         {t('the-club')}
       </Link>
-      <Link href='/teams' onClick={closeSideBarHandler}>
+      <Link href={`/${locale}/teams`} onClick={closeSideBarHandler}>
         {t('teams')}
       </Link>
-      <Link href='/shop' onClick={closeSideBarHandler}>
+      <Link href={`/${locale}/shop`} onClick={closeSideBarHandler}>
         {t('shop')}
       </Link>
       <LocaleSwitcher onHandleShowBar={onHandleShowBar} />
