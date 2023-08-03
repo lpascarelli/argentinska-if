@@ -1,8 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 
-import MainHeader from '../components/layout/main-header/main-header';
-import Footer from '../components/layout/footer/footer';
+import MainHeader from '../../components/layout/main-header/main-header';
+import Footer from '../../components/layout/footer/footer';
 
 import '../globals.css';
 

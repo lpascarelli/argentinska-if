@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
 import { ChangeEvent, useTransition } from 'react';
-import { LANGUAGES } from '@/app/constants/languages';
+import { LANGUAGES } from '@/constants/languages';
 
 interface LocaleSwitcherProps {
   onHandleShowBar?: () => void;

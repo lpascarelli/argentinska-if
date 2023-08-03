@@ -1,6 +1,6 @@
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
-import { ARGENTINSKA_FB, ARGENTINSKA_IG } from '@/app/constants/urls';
+import { ARGENTINSKA_FB, ARGENTINSKA_IG } from '@/constants/urls';
 
 export default function Footer() {
   return (
