@@ -34,7 +34,7 @@ export default async function RootLayout({
       <body className='flex flex-col' style={{ minHeight: '100vh' }}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <MainHeader />
-          <main className='m-10'>{children}</main>
+          <main className='my-10'>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
