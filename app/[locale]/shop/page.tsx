@@ -1,7 +1,9 @@
+import Section from '@/components/ui/section';
+
 export default function ShopPage() {
   return (
-    <div>
+    <Section>
       <p>Shop page</p>
-    </div>
+    </Section>
   );
 }

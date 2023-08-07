@@ -1,7 +1,9 @@
+import Section from '@/components/ui/section';
+
 export default function ClubPage() {
   return (
-    <div>
+    <Section>
       <p>The club page</p>
-    </div>
+    </Section>
   );
 }

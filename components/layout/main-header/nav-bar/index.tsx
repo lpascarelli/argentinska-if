@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { HiX } from 'react-icons/hi';
 
-import NavLinks from './nav-links';
+import NavLinks from '@/components/layout/main-header/nav-bar/nav-links';
 
 export default function NavBar() {
   const [showNav, setShowNav] = useState(false);
@@ -28,7 +28,7 @@ export default function NavBar() {
         />
       )}
       <nav
-        className={`argentinska-bg h-[100vh] fixed top-[0px] flex flex-col items-center w-full md:hidden duration-1000 text-white ${
+        className={`argentinska-bg h-[100vh] fixed z-[1] top-[0px] flex flex-col items-center w-full md:hidden duration-1000 text-white ${
           showNav ? 'right-[0px]' : 'right-[-100vw]'
         } `}
       >

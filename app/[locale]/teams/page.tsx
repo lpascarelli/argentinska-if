@@ -1,7 +1,9 @@
+import Section from '@/components/ui/section';
+
 export default function TeamsPage() {
   return (
-    <div>
+    <Section>
       <p>Teams page</p>
-    </div>
+    </Section>
   );
 }

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { useLocale } from 'next-intl';
 
-import NavBar from './nav-bar/nav-bar';
+import NavBar from './nav-bar';
 import argentinskaLogo from '@/public/images/argentinska-logo.png';
 
 export default function MainHeader() {
