@@ -10,10 +10,22 @@ export default function Home() {
     <div className='w-[25rem] sm:w-[60rem] mx-auto'>
       <Carousel loop>
         <ImageContainer>
-          <Image fill className='object-cover' src={maleTeam} alt='male-team' />
+          <Image
+            fill
+            className='object-cover'
+            src={maleTeam}
+            alt='male-team'
+            priority
+          />
         </ImageContainer>
         <ImageContainer>
-          <Image fill className='object-cover' src={mixTeam} alt='mix-team' />
+          <Image
+            fill
+            className='object-cover'
+            src={mixTeam}
+            alt='mix-team'
+            priority
+          />
         </ImageContainer>
       </Carousel>
     </div>
