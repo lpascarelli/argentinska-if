@@ -1,16 +1,18 @@
 export interface ContentfulImage {
-  title: string;
-  description: string;
-  file: {
-    fileName: string;
-    contentType: string;
-    details: {
-      image: {
-        width: number;
-        height: number;
+  fields: {
+    title: string;
+    description: string;
+    file: {
+      fileName: string;
+      contentType: string;
+      details: {
+        image: {
+          width: number;
+          height: number;
+        };
+        size: number;
       };
-      size: number;
-    };
-    url: string;
+      url: string;
+    }
   };
 }
