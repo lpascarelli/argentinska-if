@@ -1,3 +1,5 @@
+'use client';
+
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 import { ARGENTINSKA_FB, ARGENTINSKA_IG } from '@/constants/urls';

@@ -1,36 +1,38 @@
+'use client';
+
 import Image from 'next/image';
 
+import { ContentfulImage } from '@/interfaces';
 import Carousel from '@/components/ui/carousel';
 import ImageContainer from '@/components/ui/carousel/image-container';
-import Loading from '../ui/loading';
-import { getOrCreateClient } from '@/utils';
 
-export default async function Home() {
-  const client = getOrCreateClient();
-  const { items } = await client.getEntries({ content_type: 'carousel' });
-  const carousel = items[0].fields.carousel || [];
+interface HomeProps {
+  carousel: ContentfulImage[];
+}
 
-  const carouselContent = carousel.map((carouselImage) => {
+export default async function Home({ carousel }: HomeProps) {
+  function removeOpacityHandler(image: HTMLImageElement) {
+    image.classList.remove('opacity-0');
+  }
+
+  const carouselUI = carousel.map((item) => {
     return (
-      <ImageContainer key={carouselImage.sys.id}>
+      <ImageContainer key={item.fields.description}>
         <Image
-          fill
-          className='object-cover'
           priority
-          src={`https:${carouselImage.fields.file.url}`}
-          alt={`${carouselImage.fields.title}`}
+          fill
+          className='transition-opacity opacity-0 duration-[1s] object-cover'
+          src={`https:${item.fields.file.url}`}
+          alt={item.fields.file.fileName}
+          onLoadingComplete={removeOpacityHandler}
         />
       </ImageContainer>
     );
   });
 
-  return carouselContent ? (
+  return (
     <div className='w-[25rem] sm:w-[60rem] mx-auto'>
-      <Carousel loop>{carouselContent}</Carousel>
-    </div>
-  ) : (
-    <div className='flex justify-center'>
-      <Loading />
+      <Carousel loop>{carouselUI}</Carousel>
     </div>
   );
 }

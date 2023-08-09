@@ -1,3 +1,5 @@
+'use client';
+
 interface DotsProps {
   itemsLength: number;
   selectedIndex: number;
