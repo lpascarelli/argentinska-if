@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 
 import Section from '@/components/ui/section';
 import { LOCALES } from '@/constants/languages';
+import H1 from '@/components/ui/h1';
 import { getOrCreateClient } from '@/utils';
 
 interface NewsSkeleton {
@@ -25,7 +26,7 @@ export default async function NewsPage() {
 
   return (
     <Section>
-      <h1 className='text-center text-2xl font-bold'>{title}</h1>
+      <H1>{title}</H1>
       <p className='text-center'>{description}</p>
     </Section>
   );
