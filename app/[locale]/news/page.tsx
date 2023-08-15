@@ -1,9 +1,8 @@
 import { EntryFieldTypes } from 'contentful';
 import { cookies } from 'next/headers';
 
-import Section from '@/components/ui/section';
+import News from '@/components/news';
 import { LOCALES } from '@/constants/languages';
-import H1 from '@/components/ui/h1';
 import { getOrCreateClient } from '@/utils';
 
 interface NewsSkeleton {
@@ -24,10 +23,5 @@ export default async function NewsPage() {
   });
   const { newsTitle, description } = items[0].fields;
 
-  return (
-    <Section>
-      <H1>{newsTitle}</H1>
-      <p className='text-center'>{description}</p>
-    </Section>
-  );
+  return <News title={newsTitle} description={description} />;
 }
