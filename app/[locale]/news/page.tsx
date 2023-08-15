@@ -9,8 +9,8 @@ import { getOrCreateClient } from '@/utils';
 interface NewsSkeleton {
   contentTypeId: 'news';
   fields: {
-    news: EntryFieldTypes.Text;
     title: EntryFieldTypes.Text;
+    newsTitle: EntryFieldTypes.Text;
     description: EntryFieldTypes.Text;
   };
 }
@@ -22,11 +22,11 @@ export default async function NewsPage() {
     content_type: 'news',
     locale: LOCALES[locale?.value as keyof typeof LOCALES] || 'en-US',
   });
-  const { title, description } = items[0].fields;
+  const { newsTitle, description } = items[0].fields;
 
   return (
     <Section>
-      <H1>{title}</H1>
+      <H1>{newsTitle}</H1>
       <p className='text-center'>{description}</p>
     </Section>
   );
