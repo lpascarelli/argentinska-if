@@ -1,6 +1,6 @@
-export const LANGUAGES = ['en', 'es', 'sv'];
+export const LANGUAGES = ['en', 'sv'];
 
-export const LOCALES = {
-  'en': 'en-US',
-  'es': 'es-AR'
+export enum LOCALES {
+  en = 'en-US',
+  sv = 'sv'
 };
