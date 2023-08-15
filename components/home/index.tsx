@@ -5,16 +5,13 @@ import Image from 'next/image';
 import { ContentfulImage } from '@/interfaces';
 import Carousel from '@/components/ui/carousel';
 import ImageContainer from '@/components/ui/carousel/image-container';
+import { removeOpacityHandler } from '@/helpers';
 
 interface HomeProps {
   carousel: ContentfulImage[];
 }
 
 export default async function Home({ carousel }: HomeProps) {
-  function removeOpacityHandler(image: HTMLImageElement) {
-    image.classList.remove('opacity-0');
-  }
-
   const carouselUI = carousel.map((item) => {
     return (
       <ImageContainer key={item.fields.description}>
