@@ -5,7 +5,7 @@ import { TopLevelBlock, Text } from '@contentful/rich-text-types';
 
 import Section from '@/components/ui/section';
 import H1 from '@/components/ui/h1';
-import ImageContainer from '../ui/carousel/image-container';
+import ImageContainer from '@/components/ui/image-container';
 import { removeOpacityHandler } from '@/helpers';
 import { ContentfulImage } from '@/interfaces';
 

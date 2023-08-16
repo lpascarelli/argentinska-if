@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { ContentfulImage } from '@/interfaces';
 import Carousel from '@/components/ui/carousel';
-import ImageContainer from '@/components/ui/carousel/image-container';
+import ImageContainer from '@/components/ui/image-container';
 import { removeOpacityHandler } from '@/helpers';
 
 interface HomeProps {
