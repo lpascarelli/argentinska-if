@@ -1,11 +1,21 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
+import { ReactNode } from 'react';
 
-export default function ImageContainer({ children }: PropsWithChildren) {
-  return (
-    <div className='relative h-[20rem] sm:h-[35rem] flex-[0_0_100%]'>
-      {children}
-    </div>
-  );
+interface ImageContainerProps {
+  children: ReactNode;
+  classes?: string[];
+}
+
+export default function ImageContainer({
+  children,
+  classes,
+}: ImageContainerProps) {
+  let styles = 'relative';
+
+  if (classes) {
+    styles = `${styles} ${classes.join(' ')}`;
+  }
+
+  return <div className={styles}>{children}</div>;
 }

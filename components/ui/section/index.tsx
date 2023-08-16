@@ -1,7 +1,18 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
+import { ReactNode } from 'react';
 
-export default function Section({ children }: PropsWithChildren) {
-  return <section className='mx-10'>{children}</section>;
+interface SectionProps {
+  children: ReactNode;
+  classes?: string[];
+}
+
+export default function Section({ children, classes }: SectionProps) {
+  let styles = 'mx-10';
+
+  if (classes) {
+    styles = `${styles} ${classes.join(' ')}`;
+  }
+
+  return <section className={styles}>{children}</section>;
 }
