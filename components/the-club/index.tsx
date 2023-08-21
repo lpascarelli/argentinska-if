@@ -17,7 +17,6 @@ interface TheClubProps {
 
 export default function TheClub({ mainTitle, image, textNodes }: TheClubProps) {
   const paragraphs = [];
-  const classes = ['h-[15rem]', 'w-[20rem]', 'sm:w-[25rem]', 'mb-4'];
 
   for (let i = 0; i < textNodes.length; i++) {
     let content = textNodes[i].content[0] as Text;
@@ -32,7 +31,7 @@ export default function TheClub({ mainTitle, image, textNodes }: TheClubProps) {
   return (
     <Section className='flex flex-col items-center'>
       <H1 className='mb-4'>{mainTitle}</H1>
-      <ImageContainer classes={classes}>
+      <ImageContainer className='h-[15rem] w-[20rem] sm:w-[25rem] mb-4'>
         <Image
           fill
           priority

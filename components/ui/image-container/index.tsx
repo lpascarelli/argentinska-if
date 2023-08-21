@@ -1,20 +1,15 @@
 'use client';
 
-import { ReactNode } from 'react';
-
-interface ImageContainerProps {
-  children: ReactNode;
-  classes?: string[];
-}
+import { CustomTagProps } from '@/interfaces';
 
 export default function ImageContainer({
   children,
-  classes,
-}: ImageContainerProps) {
+  className,
+}: CustomTagProps) {
   let styles = 'relative';
 
-  if (classes) {
-    styles = `${styles} ${classes.join(' ')}`;
+  if (className) {
+    styles = `${styles} ${className}`;
   }
 
   return <div className={styles}>{children}</div>;

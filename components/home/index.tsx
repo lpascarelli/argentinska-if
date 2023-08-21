@@ -12,10 +12,12 @@ interface HomeProps {
 }
 
 export default async function Home({ carousel }: HomeProps) {
-  const classes = ['h-[20rem]', 'sm:h-[35rem]', 'flex-[0_0_100%]'];
   const carouselUI = carousel.map((item) => {
     return (
-      <ImageContainer key={item.fields.description} classes={classes}>
+      <ImageContainer
+        key={item.fields.description}
+        className='h-[20rem] sm:h-[35rem] flex-[0_0_100%]'
+      >
         <Image
           priority
           fill
