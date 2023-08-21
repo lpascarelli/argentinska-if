@@ -1,17 +1,12 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { CustomTagProps } from '@/interfaces';
 
-interface SectionProps {
-  children: ReactNode;
-  classes?: string[];
-}
-
-export default function Section({ children, classes }: SectionProps) {
+export default function Section({ children, className }: CustomTagProps) {
   let styles = 'mx-10';
 
-  if (classes) {
-    styles = `${styles} ${classes.join(' ')}`;
+  if (className) {
+    styles = `${styles} ${className}`;
   }
 
   return <section className={styles}>{children}</section>;
