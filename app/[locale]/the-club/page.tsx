@@ -7,6 +7,7 @@ import {
   TheClubSkeleton,
   ManagementSkeleton,
 } from '@/interfaces/contentful-api';
+import { getYear } from '@/helpers';
 
 export default async function ClubPage() {
   const locale = cookies().get('NEXT_LOCALE');
@@ -20,16 +21,19 @@ export default async function ClubPage() {
     locale: LOCALES[locale?.value as keyof typeof LOCALES] || 'en-US',
   });
 
+  const { historyTitle } = theClub.items[0].fields;
   const historyImage =
     theClub.items[0].fields.historyContent.content[0].data.target;
   const historyTextNodes =
     theClub.items[0].fields.historyContent.content.slice(1);
 
-  console.log(management.items[0].fields.manager);
+  // const managerName = management.items[0].fields.title;
+  // const { dateOfBirth, introduction } = management.items[0].fields;
+  // const managerAvatar = management.items[0].fields.manager;
 
   return (
     <TheClub
-      historyTitle={theClub.items[0].fields.historyTitle}
+      historyTitle={historyTitle}
       historyImage={historyImage}
       historyTextNodes={historyTextNodes}
     />
