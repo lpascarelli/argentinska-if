@@ -30,8 +30,8 @@ export default function TheClub({ mainTitle, image, textNodes }: TheClubProps) {
   }
 
   return (
-    <Section classes={['flex flex-col items-center']}>
-      <H1 classes={['mb-4']}>{mainTitle}</H1>
+    <Section className='flex flex-col items-center'>
+      <H1 className='mb-4'>{mainTitle}</H1>
       <ImageContainer classes={classes}>
         <Image
           fill

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ContentfulImage {
   fields: {
     title: string;
@@ -15,4 +17,9 @@ export interface ContentfulImage {
       url: string;
     }
   };
+}
+
+export interface CustomTagProps {
+  children: ReactNode;
+  className?: string;
 }

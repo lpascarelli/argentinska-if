@@ -1,15 +1,12 @@
-import { ReactNode } from 'react';
+'use client';
 
-interface H1Props {
-  children: ReactNode;
-  classes?: string[];
-}
+import { CustomTagProps } from '@/interfaces';
 
-export default function H1({ children, classes }: H1Props) {
+export default function H1({ children, className }: CustomTagProps) {
   let styles = 'text-center text-[32px] font-bold';
 
-  if (classes) {
-    styles = `${styles} ${classes.join(' ')}`;
+  if (className) {
+    styles = `${styles} ${className}`;
   }
 
   return <h1 className={styles}>{children}</h1>;
