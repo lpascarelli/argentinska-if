@@ -16,7 +16,7 @@ export default function TheClub({ history, management }: TheClubProps) {
   return (
     <>
       <History history={history} />
-      <hr className='m-4' />
+      <hr className='border border-1 border-black my-16' />
       <Management management={management} />
     </>
   );

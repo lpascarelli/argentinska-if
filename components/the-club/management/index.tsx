@@ -22,7 +22,7 @@ export default function Management({ management }: ManagementProps) {
         className='flex flex-col items-center md:flex-row md:items-stretch gap-4 mb-9'
         key={`${manager.avatar.fields.file.fileName}-${index}`}
       >
-        <ImageContainer className='h-[15rem] w-[12rem] sm:w-[20rem]'>
+        <ImageContainer className='h-[15rem] w-[14rem]'>
           <Image
             fill
             priority
@@ -32,7 +32,7 @@ export default function Management({ management }: ManagementProps) {
             onLoadingComplete={removeOpacityHandler}
           />
         </ImageContainer>
-        <div className='flex flex-col'>
+        <div className='flex flex-col flex-1'>
           <p className='text-3xl font-bold mb-2 text-center md:text-left'>
             {manager.name}
           </p>
