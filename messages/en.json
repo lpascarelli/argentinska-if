@@ -9,5 +9,8 @@
     "the-club": "The Club",
     "teams": "Teams",
     "shop": "Shop"
+  },
+  "Management": {
+    "year-of-birth": "Year of birth"
   }
 }

@@ -1,31 +1,23 @@
 'use client';
 
-import { TopLevelBlock } from '@contentful/rich-text-types';
-
 import History from '@/components/the-club/history';
 import Management from '@/components/the-club/management';
-import { ContentfulImage } from '@/interfaces';
+import {
+  History as HistoryInterface,
+  Management as ManagementInterface,
+} from '@/interfaces/the-club';
 
 interface TheClubProps {
-  historyTitle: string;
-  historyImage: ContentfulImage;
-  historyTextNodes: TopLevelBlock[];
+  history: HistoryInterface;
+  management: ManagementInterface[];
 }
 
-export default function TheClub({
-  historyTitle,
-  historyImage,
-  historyTextNodes,
-}: TheClubProps) {
+export default function TheClub({ history, management }: TheClubProps) {
   return (
-    <main>
-      <History
-        historyTitle={historyTitle}
-        historyImage={historyImage}
-        historyTextNodes={historyTextNodes}
-      />
+    <>
+      <History history={history} />
       <hr className='m-4' />
-      <Management />
-    </main>
+      <Management management={management} />
+    </>
   );
 }

@@ -9,5 +9,8 @@
     "the-club": "El club",
     "teams": "Equipos",
     "shop": "Shopping"
+  },
+  "Management": {
+    "year-of-birth": "Fecha de nacimiento"
   }
 }
