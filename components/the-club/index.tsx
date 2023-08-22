@@ -1,47 +1,23 @@
 'use client';
 
-import Image from 'next/image';
-import { TopLevelBlock, Text } from '@contentful/rich-text-types';
-
-import Section from '@/components/ui/section';
-import H1 from '@/components/ui/h1';
-import ImageContainer from '@/components/ui/image-container';
-import { removeOpacityHandler } from '@/helpers';
-import { ContentfulImage } from '@/interfaces';
+import History from '@/components/the-club/history';
+import Management from '@/components/the-club/management';
+import {
+  History as HistoryInterface,
+  Management as ManagementInterface,
+} from '@/interfaces/the-club';
 
 interface TheClubProps {
-  mainTitle: string;
-  image: ContentfulImage;
-  textNodes: TopLevelBlock[];
+  history: HistoryInterface;
+  management: ManagementInterface[];
 }
 
-export default function TheClub({ mainTitle, image, textNodes }: TheClubProps) {
-  const paragraphs = [];
-
-  for (let i = 0; i < textNodes.length; i++) {
-    let content = textNodes[i].content[0] as Text;
-
-    paragraphs.push(
-      <p key={i} className='text-lg mb-4'>
-        {content.value}
-      </p>
-    );
-  }
-
+export default function TheClub({ history, management }: TheClubProps) {
   return (
-    <Section className='flex flex-col items-center'>
-      <H1 className='mb-4'>{mainTitle}</H1>
-      <ImageContainer className='h-[15rem] w-[20rem] sm:w-[25rem] mb-4'>
-        <Image
-          fill
-          priority
-          src={`https:${image.fields.file.url}`}
-          alt={image.fields.file.fileName}
-          className='transition-opacity opacity-0 duration-[1s] rounded-2xl'
-          onLoadingComplete={removeOpacityHandler}
-        />
-      </ImageContainer>
-      <div className='text-inherit sm:w-[50rem]'>{paragraphs}</div>
-    </Section>
+    <>
+      <History history={history} />
+      <hr className='m-4' />
+      <Management management={management} />
+    </>
   );
 }

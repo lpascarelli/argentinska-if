@@ -9,5 +9,8 @@
     "the-club": "Klubben",
     "teams": "Lag",
     "shop": "Shop"
+  },
+  "Management": {
+    "year-of-birth": "Född"
   }
 }
