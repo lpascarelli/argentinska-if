@@ -1,8 +1,10 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
 import { ChangeEvent, useTransition } from 'react';
+
+import Select from '@/components/ui/select';
 import { LANGUAGES } from '@/constants/languages';
 
 interface LocaleSwitcherProps {
@@ -12,7 +14,6 @@ interface LocaleSwitcherProps {
 export default function LocaleSwitcher({
   onHandleShowBar,
 }: LocaleSwitcherProps) {
-  const t = useTranslations('LocaleSwitcher');
   const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
@@ -36,17 +37,12 @@ export default function LocaleSwitcher({
   }
 
   return (
-    <select
-      className='bg-transparent'
+    <Select
+      options={LANGUAGES}
+      translationKey='LocaleSwitcher'
       defaultValue={locale}
       disabled={isPending}
-      onChange={handleLanguageChange}
-    >
-      {LANGUAGES.map((selectedLanguage) => (
-        <option key={selectedLanguage} value={selectedLanguage}>
-          {t(`${selectedLanguage}`)}
-        </option>
-      ))}
-    </select>
+      onSelectChange={handleLanguageChange}
+    />
   );
 }
