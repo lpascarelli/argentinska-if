@@ -22,4 +22,5 @@ export interface ContentfulImage {
 export interface CustomTagProps {
   children: ReactNode;
   className?: string;
+  replaceClasses?: boolean;
 }
