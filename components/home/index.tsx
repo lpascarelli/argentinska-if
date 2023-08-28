@@ -16,7 +16,7 @@ interface HomeProps {
   ourValues: OurValuesInterface;
 }
 
-export default async function Home({ carousel, ourValues }: HomeProps) {
+export default function Home({ carousel, ourValues }: HomeProps) {
   const carouselUI = carousel.map((item) => {
     return (
       <ImageContainer
@@ -34,8 +34,6 @@ export default async function Home({ carousel, ourValues }: HomeProps) {
       </ImageContainer>
     );
   });
-
-  console.log(ourValues);
 
   return (
     <Section>
