@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { ContentfulImage } from '@/interfaces';
 import Carousel from '@/components/ui/carousel';
+import Section from '@/components/ui/section';
 import ImageContainer from '@/components/ui/image-container';
 import { removeOpacityHandler } from '@/helpers';
 
@@ -31,8 +32,8 @@ export default async function Home({ carousel }: HomeProps) {
   });
 
   return (
-    <div className='w-[25rem] sm:w-[60rem] mx-auto'>
+    <Section className='sm:w-[60rem] mx-auto mb-4'>
       <Carousel loop>{carouselUI}</Carousel>
-    </div>
+    </Section>
   );
 }
