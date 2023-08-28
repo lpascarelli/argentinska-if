@@ -32,7 +32,7 @@ export default async function Home({ carousel }: HomeProps) {
   });
 
   return (
-    <Section replaceClasses className='w-[25rem] sm:w-[60rem] mx-auto mb-4'>
+    <Section className='sm:w-[60rem] mx-auto mb-4'>
       <Carousel loop>{carouselUI}</Carousel>
     </Section>
   );
