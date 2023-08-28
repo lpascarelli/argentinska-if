@@ -1,6 +1,7 @@
 'use client';
 
 import History from '@/components/the-club/history';
+import Hr from '@/components/ui/hr';
 import Management from '@/components/the-club/management';
 import {
   History as HistoryInterface,
@@ -16,7 +17,7 @@ export default function TheClub({ history, management }: TheClubProps) {
   return (
     <>
       <History history={history} />
-      <hr className='border border-1 border-black my-16' />
+      <Hr />
       <Management management={management} />
     </>
   );

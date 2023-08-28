@@ -2,6 +2,14 @@ import { EntryFieldTypes } from 'contentful';
 
 import { ContentfulImage } from '@/interfaces';
 
+export interface CarouselSkeleton {
+  contentTypeId: 'carousel';
+  fields: {
+    title: EntryFieldTypes.Text;
+    carousel: Array<ContentfulImage>;
+  };
+}
+
 export interface ManagementSkeleton {
   contentTypeId: 'management';
   fields: {
@@ -28,4 +36,14 @@ export interface TheClubSkeleton {
     historyTitle: EntryFieldTypes.Text;
     historyContent: EntryFieldTypes.RichText;
   };
+}
+
+export interface OurValuesSkeleton {
+  contentTypeId: 'ourValues';
+  fields: {
+    title: EntryFieldTypes.Text;
+    mission: EntryFieldTypes.Text;
+    vision: EntryFieldTypes.Text;
+    values: EntryFieldTypes.RichText;
+  }
 }

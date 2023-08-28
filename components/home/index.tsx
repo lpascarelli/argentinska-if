@@ -2,17 +2,21 @@
 
 import Image from 'next/image';
 
-import { ContentfulImage } from '@/interfaces';
 import Carousel from '@/components/ui/carousel';
+import Hr from '@/components/ui/hr';
 import Section from '@/components/ui/section';
+import OurValues from '@/components/our-values';
 import ImageContainer from '@/components/ui/image-container';
+import { ContentfulImage } from '@/interfaces';
+import { OurValues as OurValuesInterface } from '@/interfaces/home/our-values';
 import { removeOpacityHandler } from '@/helpers';
 
 interface HomeProps {
   carousel: ContentfulImage[];
+  ourValues: OurValuesInterface;
 }
 
-export default async function Home({ carousel }: HomeProps) {
+export default async function Home({ carousel, ourValues }: HomeProps) {
   const carouselUI = carousel.map((item) => {
     return (
       <ImageContainer
@@ -31,9 +35,15 @@ export default async function Home({ carousel }: HomeProps) {
     );
   });
 
+  console.log(ourValues);
+
   return (
-    <Section className='sm:w-[60rem] mx-auto mb-4'>
-      <Carousel loop>{carouselUI}</Carousel>
+    <Section>
+      <div className='sm:w-[60rem] mx-auto'>
+        <Carousel loop>{carouselUI}</Carousel>
+      </div>
+      <Hr />
+      <OurValues ourValues={ourValues} />
     </Section>
   );
 }
