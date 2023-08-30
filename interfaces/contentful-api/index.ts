@@ -1,4 +1,8 @@
-import { EntryFieldTypes } from 'contentful';
+import {
+  EntryFieldTypes,
+  EntryCollection,
+  EntrySkeletonType,
+} from 'contentful';
 
 import { ContentfulImage } from '@/interfaces';
 
@@ -10,6 +14,11 @@ export interface CarouselSkeleton {
   };
 }
 
+export interface GetEntryResponse<T extends EntrySkeletonType> {
+  ok: boolean
+  data: EntryCollection<T, undefined, string>
+  error?: string
+}
 export interface ManagementSkeleton {
   contentTypeId: 'management';
   fields: {
@@ -29,15 +38,6 @@ export interface NewsSkeleton {
   };
 }
 
-export interface TheClubSkeleton {
-  contentTypeId: 'theClub';
-  fields: {
-    title: EntryFieldTypes.Text;
-    historyTitle: EntryFieldTypes.Text;
-    historyContent: EntryFieldTypes.RichText;
-  };
-}
-
 export interface OurValuesSkeleton {
   contentTypeId: 'ourValues';
   fields: {
@@ -46,4 +46,13 @@ export interface OurValuesSkeleton {
     vision: EntryFieldTypes.Text;
     values: EntryFieldTypes.RichText;
   }
+}
+
+export interface TheClubSkeleton {
+  contentTypeId: 'theClub';
+  fields: {
+    title: EntryFieldTypes.Text;
+    historyTitle: EntryFieldTypes.Text;
+    historyContent: EntryFieldTypes.RichText;
+  };
 }
