@@ -1,28 +1,20 @@
 import Home from '@/components/home';
-import { getEntry } from '@/contentful-client';
-import { ContentfulImage } from '@/interfaces';
-import {
-  CarouselSkeleton,
-  OurValuesSkeleton,
-} from '@/interfaces/contentful-api';
-import { OurValues } from '@/interfaces/home/our-values';
+import Error from '@/components/ui/error';
+import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 
 export default async function HomePage() {
-  const [carouselSkeleton, ourValuesSkeleton] = await Promise.all([
-    getEntry<CarouselSkeleton>('carousel'),
-    getEntry<OurValuesSkeleton>('ourValues'),
-  ]);
+  const fetchHomeData = await fetch(
+    `${process.env.HOST_ENVIRONMENT}/api/home`,
+    {
+      method: 'GET',
+    }
+  );
 
-  if (carouselSkeleton.ok && ourValuesSkeleton.ok) {
-    const carousel = carouselSkeleton.data.items[0].fields
-      .carousel as ContentfulImage[];
-    const ourValues: OurValues = {
-      title: ourValuesSkeleton.data.items[0].fields.title,
-      mission: ourValuesSkeleton.data.items[0].fields.mission,
-      vision: ourValuesSkeleton.data.items[0].fields.vision,
-      values: ourValuesSkeleton.data.items[0].fields.values.content,
-    };
-
-    return <Home carousel={carousel} ourValues={ourValues} />;
+  if (fetchHomeData && fetchHomeData.status === INTERNAL_SERVER_ERROR) {
+    return <Error />;
   }
+
+  const { carousel, ourValues } = await fetchHomeData.json();
+
+  return <Home carousel={carousel} ourValues={ourValues} />;
 }
