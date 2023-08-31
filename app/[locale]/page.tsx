@@ -1,14 +1,12 @@
 import Home from '@/components/home';
 import Error from '@/components/ui/error';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
+import { HOST } from '@/constants/urls';
 
 export default async function HomePage() {
-  const fetchHomeData = await fetch(
-    `${process.env.HOST_ENVIRONMENT}/api/home`,
-    {
-      method: 'GET',
-    }
-  );
+  const fetchHomeData = await fetch(`${HOST}/api/home`, {
+    method: 'GET',
+  });
 
   if (fetchHomeData && fetchHomeData.status === INTERNAL_SERVER_ERROR) {
     return <Error />;
