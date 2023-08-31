@@ -1,13 +1,19 @@
 import News from '@/components/news';
-import { getEntry } from '@/contentful-client';
-import { NewsSkeleton } from '@/interfaces/contentful-api';
+import Error from '@/components/ui/error';
+import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 
 export default async function NewsPage() {
-  const newsSkeleton = await getEntry<NewsSkeleton>('news');
+  const fetchNewsData = await fetch(
+    `${process.env.HOST_ENVIRONMENT}/api/news`,
+    { method: 'GET' }
+  );
 
-  if (newsSkeleton.ok) {
-    const { newsTitle, description } = newsSkeleton.data.items[0].fields;
-
-    return <News title={newsTitle} description={description} />;
+  if (fetchNewsData && fetchNewsData.status === INTERNAL_SERVER_ERROR) {
+    return <Error />;
   }
+
+  const { news } = await fetchNewsData.json();
+  const { title, description } = news;
+
+  return <News title={title} description={description} />;
 }

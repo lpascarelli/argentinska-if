@@ -9,6 +9,7 @@ export default async function HomePage() {
       method: 'GET',
     }
   );
+
   if (fetchHomeData && fetchHomeData.status === INTERNAL_SERVER_ERROR) {
     return <Error />;
   }
