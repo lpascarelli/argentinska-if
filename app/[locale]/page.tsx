@@ -5,6 +5,9 @@ import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 export default async function HomePage() {
   const fetchHomeData = await fetch(`${process.env.BASE_URL!}/api/home`, {
     method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
   });
 
   if (fetchHomeData && fetchHomeData.status === INTERNAL_SERVER_ERROR) {

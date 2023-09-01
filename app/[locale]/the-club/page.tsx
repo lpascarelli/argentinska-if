@@ -7,6 +7,9 @@ export default async function TheClubPage() {
     `${process.env.BASE_URL!}/api/the-club`,
     {
       method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      },
     }
   );
 

@@ -5,6 +5,9 @@ import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 export default async function NewsPage() {
   const fetchNewsData = await fetch(`${process.env.BASE_URL!}/api/news`, {
     method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
   });
 
   if (fetchNewsData && fetchNewsData.status === INTERNAL_SERVER_ERROR) {
