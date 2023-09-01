@@ -1,10 +1,9 @@
 import Home from '@/components/home';
 import Error from '@/components/ui/error';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
-import { HOST } from '@/constants/urls';
 
 export default async function HomePage() {
-  const fetchHomeData = await fetch(`${HOST}/api/home`, {
+  const fetchHomeData = await fetch(`${process.env.BASE_URL!}/api/home`, {
     method: 'GET',
   });
 
