@@ -7,7 +7,7 @@ import Footer from '@/components/layout/footer';
 import '../globals.css';
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'es' }, { locale: 'sv' }];
+  return [{ locale: 'en' }, { locale: 'sv' }];
 }
 
 export const metadata = {
