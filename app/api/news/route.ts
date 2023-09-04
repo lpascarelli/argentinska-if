@@ -4,18 +4,14 @@ import { getEntry } from '@/contentful-client';
 import { NewsSkeleton } from '@/interfaces/contentful-api';
 
 export async function GET() {
-  try {
-    const newsSkeleton = await getEntry<NewsSkeleton>('news');
+  const newsSkeleton = await getEntry<NewsSkeleton>('news');
 
-    if (!newsSkeleton.ok) {
-      throw new Error();
-    }
-
-    const { newsTitle, description } = newsSkeleton.data.items[0].fields;
-    const news = { title: newsTitle, description };
-
-    return NextResponse.json({ news });
-  } catch (error) {
+  if (!newsSkeleton.ok) {
     return NextResponse.json({ status: 500 });
   }
+
+  const { newsTitle, description } = newsSkeleton.data.items[0].fields;
+  const news = { title: newsTitle, description };
+
+  return NextResponse.json({ news });
 }

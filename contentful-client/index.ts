@@ -14,33 +14,21 @@ export async function getEntry<T extends EntrySkeletonType>(
 ): Promise<GetEntryResponse<T>> {
   const locale = cookies().get('NEXT_LOCALE');
 
-  try {
-    const data = await client.getEntries<T>({
-      content_type: contentType,
-      locale: LOCALES[locale?.value as keyof typeof LOCALES] || 'en-US',
-    });
+  const data = await client.getEntries<T>({
+    content_type: contentType,
+    locale: LOCALES[locale?.value as keyof typeof LOCALES] || 'en-US',
+  });
 
-    if (data.errors) {
-      throw new Error(contentType);
-    }
-
-    return {
-      ok: true,
-      data,
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      return {
-        ok: false,
-        data: {} as EntryCollection<T, undefined, string>,
-        error: error.message
-      }
-    }
-
+  if (data.errors && data.errors.length > 0) {
     return {
       ok: false,
       data: {} as EntryCollection<T, undefined, string>,
-      error: 'Something went wrong while getting data',
-    };
+      error: new Error(contentType).message
+    }
   }
+
+  return {
+    ok: true,
+    data,
+  };
 }
