@@ -22,7 +22,7 @@ export default function Management({ management }: ManagementProps) {
         className='flex flex-col items-center md:flex-row md:items-stretch gap-4 mb-9'
         key={`${manager.avatar.fields.file.fileName}-${index}`}
       >
-        <ImageContainer className='h-[15rem] w-[14rem]'>
+        <ImageContainer className='h-[20rem] w-[15rem]'>
           <Image
             fill
             priority
