@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { getEntry } from '@/contentful-client';
 import { NewsSkeleton } from '@/interfaces/contentful-api';
 
-export async function GET() {
+export async function loadNews() {
   const newsSkeleton = await getEntry<NewsSkeleton>('news');
 
   if (!newsSkeleton.ok) {

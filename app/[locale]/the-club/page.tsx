@@ -2,23 +2,16 @@ import { notFound } from 'next/navigation';
 
 import TheClub from '@/components/the-club';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
-import axios from '@/helpers/axios';
+import { loadTheClubData } from '@/lib/the-club';
 
 export default async function TheClubPage() {
-  const fetchTheClubData = await axios.get(
-    `${process.env.BASE_URL!}/api/the-club`,
-    {
-      headers: {
-        'Content-type': 'application/json',
-      },
-    }
-  );
+  const fetchTheClubData = await loadTheClubData();
 
   if (fetchTheClubData && fetchTheClubData.status === INTERNAL_SERVER_ERROR) {
     return notFound();
   }
 
-  const { history, management } = fetchTheClubData.data;
+  const { history, management } = await fetchTheClubData.json();
 
   return <TheClub history={history} management={management} />;
 }

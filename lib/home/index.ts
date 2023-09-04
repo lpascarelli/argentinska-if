@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
-import { getEntry } from "@/contentful-client";
+import { getEntry } from '@/contentful-client';
 import {
   CarouselSkeleton,
   OurValuesSkeleton,
@@ -8,7 +8,7 @@ import {
 import { ContentfulImage } from '@/interfaces';
 import { OurValues } from '@/interfaces/home/our-values';
 
-export async function GET() {
+export async function loadHomeData() {
   const [carouselSkeleton, ourValuesSkeleton] = await Promise.all([
     getEntry<CarouselSkeleton>('carousel'),
     getEntry<OurValuesSkeleton>('ourValues'),
