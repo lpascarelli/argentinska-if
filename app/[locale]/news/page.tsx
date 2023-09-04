@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation';
+
 import News from '@/components/news';
-import Error from '@/components/ui/error';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 import axios from '@/helpers/axios';
 
@@ -11,7 +12,7 @@ export default async function NewsPage() {
   });
 
   if (fetchNewsData && fetchNewsData.status === INTERNAL_SERVER_ERROR) {
-    return <Error />;
+    return notFound();
   }
 
   const { news } = fetchNewsData.data;

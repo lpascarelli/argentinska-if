@@ -1,6 +1,6 @@
 import { BiSolidErrorCircle } from 'react-icons/bi';
 
-export default function Error() {
+export default function NotFound() {
   return (
     <div className='flex items-center justify-center gap-4'>
       <BiSolidErrorCircle size={64} />

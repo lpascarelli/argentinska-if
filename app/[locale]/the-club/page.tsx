@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation';
+
 import TheClub from '@/components/the-club';
-import Error from '@/components/ui/error';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 import axios from '@/helpers/axios';
 
@@ -14,7 +15,7 @@ export default async function TheClubPage() {
   );
 
   if (fetchTheClubData && fetchTheClubData.status === INTERNAL_SERVER_ERROR) {
-    return <Error />;
+    return notFound();
   }
 
   const { history, management } = fetchTheClubData.data;

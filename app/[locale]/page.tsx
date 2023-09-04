@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation';
+
 import Home from '@/components/home';
-import Error from '@/components/ui/error';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
 import axios from '@/helpers/axios';
 
@@ -11,7 +12,7 @@ export default async function HomePage() {
   });
 
   if (fetchHomeData && fetchHomeData.status === INTERNAL_SERVER_ERROR) {
-    return <Error />;
+    return notFound();
   }
 
   const { carousel, ourValues } = fetchHomeData.data;
