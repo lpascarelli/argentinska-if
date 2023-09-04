@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 
 import News from '@/components/news';
 import { INTERNAL_SERVER_ERROR } from '@/constants/response-status';
-import axios from '@/helpers/axios';
 import { loadNews } from '@/lib/news';
 
 export default async function NewsPage() {
