@@ -6,12 +6,11 @@ import { loadTheClubData } from '@/lib/the-club';
 
 export default async function TheClubPage() {
   const fetchTheClubData = await loadTheClubData();
+  const { history, management, status } = await fetchTheClubData.json();
 
-  if (fetchTheClubData && fetchTheClubData.status === INTERNAL_SERVER_ERROR) {
+  if (status && status === INTERNAL_SERVER_ERROR) {
     return notFound();
   }
-
-  const { history, management } = await fetchTheClubData.json();
 
   return <TheClub history={history} management={management} />;
 }
