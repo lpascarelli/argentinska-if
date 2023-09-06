@@ -1,15 +1,19 @@
 {
-  "LocaleSwitcher": {
+  "Languages": {
     "en": "Engelsk",
     "sv": "Svenska"
   },
   "NavLinks": {
     "news": "Nyheter",
-    "the-club": "Klubben",
     "teams": "Lag",
     "shop": "Shop"
   },
   "Management": {
     "year-of-birth": "Född"
+  },
+  "TheClub": {
+    "the-club": "Klubben",
+    "about-us": "Om oss",
+    "our-values": "Våra värderingar"
   }
 }

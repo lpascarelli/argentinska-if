@@ -2,29 +2,29 @@ import { NextResponse } from 'next/server';
 
 import { getEntry } from '@/contentful-client';
 import {
-  TheClubSkeleton,
+  AboutUsSkeleton,
   ManagementSkeleton,
 } from '@/interfaces/contentful-api';
 import { getYear } from '@/helpers';
 import { History, Management } from '@/interfaces/the-club';
 
-export async function loadTheClubData() {
-  const [theClubSkeleton, managementSkeleton] = await Promise.all([
-    getEntry<TheClubSkeleton>('theClub'),
+export async function loadAboutUsData() {
+  const [aboutUsSkeleton, managementSkeleton] = await Promise.all([
+    getEntry<AboutUsSkeleton>('theClub'),
     getEntry<ManagementSkeleton>('management'),
   ]);
 
-  if (!theClubSkeleton.ok || !managementSkeleton.ok) {
+  if (!aboutUsSkeleton.ok || !managementSkeleton.ok) {
     return NextResponse.json({ status: 500 });
   }
 
   const history: History = {
-    title: theClubSkeleton.data.items[0].fields.historyTitle,
+    title: aboutUsSkeleton.data.items[0].fields.historyTitle,
     image:
-      theClubSkeleton.data.items[0].fields.historyContent.content[0].data
+      aboutUsSkeleton.data.items[0].fields.historyContent.content[0].data
         .target,
     textNodes:
-      theClubSkeleton.data.items[0].fields.historyContent.content.slice(1),
+      aboutUsSkeleton.data.items[0].fields.historyContent.content.slice(1),
   };
 
   const management: Management[] = managementSkeleton.data.items.map((item) => {
