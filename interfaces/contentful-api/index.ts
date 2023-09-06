@@ -6,6 +6,15 @@ import {
 
 import { ContentfulImage } from '@/interfaces';
 
+export interface AboutUsSkeleton {
+  contentTypeId: 'theClub';
+  fields: {
+    title: EntryFieldTypes.Text;
+    historyTitle: EntryFieldTypes.Text;
+    historyContent: EntryFieldTypes.RichText;
+  };
+}
+
 export interface CarouselSkeleton {
   contentTypeId: 'carousel';
   fields: {
@@ -46,13 +55,4 @@ export interface OurValuesSkeleton {
     vision: EntryFieldTypes.Text;
     values: EntryFieldTypes.RichText;
   }
-}
-
-export interface TheClubSkeleton {
-  contentTypeId: 'theClub';
-  fields: {
-    title: EntryFieldTypes.Text;
-    historyTitle: EntryFieldTypes.Text;
-    historyContent: EntryFieldTypes.RichText;
-  };
 }
