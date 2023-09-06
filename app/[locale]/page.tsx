@@ -6,11 +6,11 @@ import { loadHomeData } from '@/lib/home';
 
 export default async function HomePage() {
   const fetchHomeData = await loadHomeData();
-  const { carousel, ourValues, status } = await fetchHomeData.json();
+  const { carousel, status } = await fetchHomeData.json();
 
   if (status && status === INTERNAL_SERVER_ERROR) {
     return notFound();
   }
 
-  return <Home carousel={carousel} ourValues={ourValues} />;
+  return <Home carousel={carousel} />;
 }
