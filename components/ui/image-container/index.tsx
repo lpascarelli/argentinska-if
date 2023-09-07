@@ -6,11 +6,7 @@ export default function ImageContainer({
   children,
   className,
 }: CustomTagProps) {
-  let styles = 'relative';
+  const styles = 'relative';
 
-  if (className) {
-    styles = `${styles} ${className}`;
-  }
-
-  return <div className={styles}>{children}</div>;
+  return <div className={`${styles} ${className}`}>{children}</div>;
 }

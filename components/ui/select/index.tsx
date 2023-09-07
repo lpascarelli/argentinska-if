@@ -21,15 +21,11 @@ export default function Select({
   defaultValue,
 }: SelectProps) {
   const t = useTranslations(translationKey);
-  let styles = 'bg-transparent';
-
-  if (className) {
-    styles = `${styles} ${className}`;
-  }
+  const styles = 'bg-transparent w-[5.5rem]';
 
   return (
     <select
-      className={styles}
+      className={`${styles} ${className}`}
       defaultValue={defaultValue}
       disabled={disabled}
       onChange={onSelectChange}
