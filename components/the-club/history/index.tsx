@@ -5,6 +5,7 @@ import { Text } from '@contentful/rich-text-types';
 
 import Section from '@/components/ui/section';
 import H1 from '@/components/ui/h1';
+import Paragraph from '@/components/ui/paragraph';
 import ImageContainer from '@/components/ui/image-container';
 import { removeOpacityHandler } from '@/helpers';
 import { History } from '@/interfaces/the-club';
@@ -20,11 +21,7 @@ export default function History({ history }: HistoryProps) {
   for (let i = 0; i < textNodes.length; i++) {
     let content = textNodes[i].content[0] as Text;
 
-    paragraphs.push(
-      <p key={i} className='text-lg mb-4'>
-        {content.value}
-      </p>
-    );
+    paragraphs.push(<Paragraph key={i}>{content.value}</Paragraph>);
   }
 
   return (
@@ -40,7 +37,7 @@ export default function History({ history }: HistoryProps) {
           onLoadingComplete={removeOpacityHandler}
         />
       </ImageContainer>
-      <div className='text-inherit sm:w-[50rem]'>{paragraphs}</div>
+      <div className='sm:w-[50rem]'>{paragraphs}</div>
     </Section>
   );
 }
