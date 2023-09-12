@@ -1,7 +1,8 @@
 'use client';
 
-import Section from '@/components/ui/section';
+import Card from '@/components/ui/card';
 import H1 from '@/components/ui/h1';
+import Section from '@/components/ui/section';
 import Paragraph from '@/components/ui/paragraph';
 import { OurValues } from '@/interfaces/home/our-values';
 
@@ -14,7 +15,7 @@ export default function OurValues({ ourValues }: OurValuesProps) {
   return (
     <Section className='flex flex-col items-center'>
       <H1 className='mb-4'>{ourValues.title}</H1>
-      <div className='sm:w-[50rem]'>
+      <Card>
         <Paragraph>
           <strong>Mission: </strong>
           {ourValues.mission}
@@ -23,7 +24,7 @@ export default function OurValues({ ourValues }: OurValuesProps) {
           <strong>Vision: </strong>
           {ourValues.vision}
         </Paragraph>
-      </div>
+      </Card>
     </Section>
   );
 }

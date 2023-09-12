@@ -52,6 +52,10 @@ export default function NavLinks({ isMobile, onHandleShowBar }: NavLinksProps) {
   function handleTheClubChange(event: ChangeEvent<HTMLSelectElement>) {
     const { value } = event.target;
 
+    if (onHandleShowBar) {
+      onHandleShowBar();
+    }
+
     if (!theClub.includes(value) || value === THECLUB.TheClub) {
       return router.push('/', { locale });
     }

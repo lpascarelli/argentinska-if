@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import { Text } from '@contentful/rich-text-types';
 
-import Section from '@/components/ui/section';
+import Card from '@/components/ui/card';
 import H1 from '@/components/ui/h1';
+import Section from '@/components/ui/section';
 import Paragraph from '@/components/ui/paragraph';
 import ImageContainer from '@/components/ui/image-container';
 import { removeOpacityHandler } from '@/helpers';
@@ -37,7 +38,7 @@ export default function History({ history }: HistoryProps) {
           onLoadingComplete={removeOpacityHandler}
         />
       </ImageContainer>
-      <div className='sm:w-[50rem]'>{paragraphs}</div>
+      <Card>{paragraphs}</Card>
     </Section>
   );
 }

@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-import Section from '@/components/ui/section';
+import Card from '@/components/ui/card';
 import H1 from '@/components/ui/h1';
+import Section from '@/components/ui/section';
 import ImageContainer from '@/components/ui/image-container';
 import { Management } from '@/interfaces/the-club';
 import { removeOpacityHandler } from '@/helpers';
@@ -50,7 +51,7 @@ export default function Management({ management }: ManagementProps) {
   return (
     <Section className='flex flex-col items-center'>
       <H1 className='mb-4'>Management</H1>
-      <div className='sm:w-[50rem]'>
+      <Card>
         <p className='text-inherit text-lg mb-8'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
           quod adipisci error modi voluptates deserunt quisquam sint ratione,
@@ -58,7 +59,7 @@ export default function Management({ management }: ManagementProps) {
           incidunt voluptatum porro?
         </p>
         {managementUI}
-      </div>
+      </Card>
     </Section>
   );
 }
