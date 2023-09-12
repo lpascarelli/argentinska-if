@@ -9,3 +9,7 @@ export function getYear(date: string) {
 
   return current.year();
 }
+
+export function getSubStr(text: string, char: String) {
+  return text.substring(0, text.indexOf(`${char}`));
+}
