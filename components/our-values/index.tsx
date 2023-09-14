@@ -8,7 +8,6 @@ import Paragraph from '@/components/ui/paragraph';
 import Section from '@/components/ui/section';
 import ValueBox from '@/components/our-values/value-box';
 import { ourValuesBlockIcons } from '@/constants';
-import { getSubStr } from '@/helpers';
 import { OurValues } from '@/interfaces/home/our-values';
 
 interface OurValuesProps {
@@ -18,11 +17,11 @@ interface OurValuesProps {
 export default function OurValues({ ourValues }: OurValuesProps) {
   const ourValuesBlocks = ourValues.values.map((item, index) => {
     const text = item.content[0] as Text;
-    const iconName = getSubStr(text.value, ':');
     const icon = ourValuesBlockIcons[index];
 
     return <ValueBox key={index} text={text.value} icon={icon} />;
   });
+
   return (
     <Section className='flex flex-col items-center'>
       <H1 className='mb-4'>{ourValues.title}</H1>
