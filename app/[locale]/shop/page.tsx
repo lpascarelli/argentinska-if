@@ -1,9 +1,5 @@
-import Section from '@/components/ui/section';
+import Shop from '@/components/shop';
 
 export default function ShopPage() {
-  return (
-    <Section>
-      <p>Shop page</p>
-    </Section>
-  );
+  return <Shop />;
 }

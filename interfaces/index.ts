@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 export interface ContentfulImage {
   fields: {
@@ -22,4 +22,10 @@ export interface ContentfulImage {
 export interface CustomTagProps {
   children: ReactNode;
   className?: string;
+}
+
+export interface AnchorProps extends ComponentProps<'a'> {
+  href: string;
+  children: ReactNode;
+  className?: string
 }
