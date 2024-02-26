@@ -21,7 +21,7 @@ export default function Select({
   defaultValue,
 }: SelectProps) {
   const t = useTranslations(translationKey);
-  const styles = 'bg-transparent w-[5.5rem]';
+  const styles = 'bg-transparent';
 
   return (
     <select
